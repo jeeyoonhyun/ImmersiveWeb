@@ -7,6 +7,7 @@ The updated experiments will be archived in [instagram](https://www.instagram.co
 
 ## Day 1: Diving
 ![3d text written '50 days of immersive web' with black ocean waves](./day1/day1.gif)
+* Typeface credit: Anthony by Sun Young Oh, downloded from Velvetyne Type Foundry
 
 
 1. What is your project theme?
