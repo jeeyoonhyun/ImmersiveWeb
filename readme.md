@@ -5,7 +5,7 @@ For one hour a day, I will try working with different immersive technologies tha
 I will also get rid of perfectionism and value quantity over quality, breadth over depth and consistency over intensity. 
 The updated experiments will be archived in [instagram](https://www.instagram.com/jeeyoonhyun/) and also in a [github repo](https://github.com/jeeyoonhyun/ImmersiveWeb).
 
-### project theme
+### Project Theme
 - Make 50 interactive mini websites including immersive elements
     - three.js, GLSL and WebGL, Unity, WebXR
 - Make a dedicated collage website where you can try the interactions
