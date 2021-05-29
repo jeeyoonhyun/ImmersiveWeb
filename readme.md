@@ -22,4 +22,5 @@ The updated experiments will be archived in [instagram](https://www.instagram.co
 
 ## Day 2: Postprocessing
 ![white glowing linear shapes that are intertwined](./day2/day2.gif)
+
 Today I played around with making random shapes and applying the Bloom postprocessing effect on the scene.
