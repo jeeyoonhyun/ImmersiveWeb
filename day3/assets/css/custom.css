@@ -1,0 +1,39 @@
+/* Show it is fixed to the top */
+body {
+  min-height: 75rem;
+  padding-top: 4.5rem;
+}
+
+div.page-header{
+  margin-top: 1.5rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 20px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#ext_link{
+  margin-left: 4px;
+  margin-top: -3px;
+}
+
+#brand-span{
+  padding: 0.5rem;
+}
