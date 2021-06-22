@@ -165,49 +165,49 @@ gui
  */
 const clock = new THREE.Clock()
 
-function handleOrientation(event) {
-    scene.background = new THREE.Color( 0x000000 );
-        // Because we don't want to have the device upside down
-        // We constrain the x value to the range [-90,90]
-        if (event.alpha, event.gamma > 90) { event.alpha, event.gamma = 90 };
-        if (event.alpha, event.gamma < -90) { event.alpha, event.gamma = -90 };
-
-        parameters.deviceBeta = event.beta;
-        parameters.deviceAlpha = event.alpha;
-        parameters.deviceGamma = event.gamma;
+const getPermisson = e => {
+    e.preventDefault();
+    // Request permission for iOS 13+ devices
+    if (
+        DeviceOrientationEvent &&
+        typeof DeviceOrientationEvent.requestPermission === "function"
+      ) {
+        console.log("click event received!!")
+        scene.background = new THREE.Color( 0xffffff );
+        DeviceOrientationEvent.requestPermission();
+    }
 }
 
+const rotate = e => {
+    console.log("orientation event received!")
+    scene.background = new THREE.Color( 0xff0000 );
+    var x = e.beta;
+    var y = e.alpha;
+    var z = e.gamma;
+
+    // Because we don't want to have the device upside down
+    // We constrain the x value to the range [-90,90]
+    if (y,z > 90) { y,z = 90};
+    if (y,z < -90) { y,z = -90};
+
+    parameters.deviceBeta = x;
+    parameters.deviceAlpha = y;
+    parameters.deviceGamma = z;
+}
+
+// get device orientation when button is clicked
+let button = document.getElementById("start");
+
+button.onclick = function(e) {
+    e.preventDefault();
+    window.addEventListener("click", getPermisson);
+    window.addEventListener("touchstart", getPermisson);
+    // Detect device orientation
+    window.addEventListener("deviceorientation", rotate, true);
+
+}
 const tick = () =>
 {
-    window.ontouchstart = e => {
-        e.preventDefault();
-        scene.background = new THREE.Color( 0xffffff );
-        // Request permission for iOS 13+ devices
-        if (
-            DeviceOrientationEvent &&
-            typeof DeviceOrientationEvent.requestPermission === "function"
-          ) {
-            DeviceOrientationEvent.requestPermission();
-            window.addEventListener("deviceorientation", handleOrientation);
-          }
-    }
-    // Detect device orientation
-    // window.addEventListener("deviceorientation", (event) => {
-    //     var x = event.beta;
-    //     var y = event.alpha;
-    //     var z = event.gamma;
-    
-    //     // Because we don't want to have the device upside down
-    //     // We constrain the x value to the range [-90,90]
-    //     if (y,z > 90) { y,z = 90};
-    //     if (y,z < -90) { y,z = -90};
-
-    //     parameters.deviceBeta = x;
-    //     parameters.deviceAlpha = y;
-    //     parameters.deviceGamma = z;
-        
-    // }, true);
-
     const elapsedTime = clock.getElapsedTime()
 
     // Update controls
@@ -216,7 +216,6 @@ const tick = () =>
     // Render
     renderer.render(scene, camera)
 
-    // console.log(parameters.deviceAlpha * Math.PI / 180);
     // Rotation
     mesh.rotation.x = parameters.deviceBeta * Math.PI / 180;
     mesh.rotation.y = parameters.deviceAlpha * Math.PI / 180;
