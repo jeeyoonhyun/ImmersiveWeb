@@ -26,7 +26,7 @@ mesh = new THREE.Mesh( geometry, material );
 scene.add( mesh );
 
 for (let i=0; i< 10; i++) {
-    geometry = new THREE.TorusKnotGeometry(Math.random(0.5), 0.02, 8, 16, Math.floor(Math.random() * 20), Math.floor(Math.random() * 20));
+    geometry = new THREE.CylinderGeometry(Math.random(5), , 8, 16, Math.floor(Math.random() * 20), Math.floor(Math.random() * 20));
     mesh = new THREE.Mesh( geometry, material );
     mesh.position.set( Math.floor(Math.random() * 3), Math.floor(Math.random() * 3), Math.floor(Math.random() * 3));
     scene.add( mesh );
