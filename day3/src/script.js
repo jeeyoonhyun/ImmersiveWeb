@@ -4,32 +4,16 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { DirectionalLight } from 'three'
 import * as dat from 'dat.gui';
 
-
-// Accelerometer
-// Request permission for iOS 13+ devices
-// if (
-//     DeviceMotionEvent &&
-//     typeof DeviceMotionEvent.requestPermission === "function"
-//     ) {
-//     DeviceMotionEvent.requestPermission();
-//     }
-
-let rot;
-    
-function handleOrientation(event) {
-    var absolute = event.absolute;
-    var gamma    = event.gamma;
-    rot = gamma;
-    // Do stuff with the new orientation data
-}
-window.addEventListener("deviceorientation", handleOrientation, true);
-
 // Params
 const parameters = {
     meshColor: 0x455eff,
     lightColor: 0xffffff,
-    planeColor: 0x313866
+    planeColor: 0x313866,
+    deviceAlpha:0,
+    deviceBeta:0,
+    deviceGamma: 0,
 }
+
 /**
  * Base
  */
@@ -181,8 +165,49 @@ gui
  */
 const clock = new THREE.Clock()
 
+function handleOrientation(event) {
+    scene.background = new THREE.Color( 0x000000 );
+        // Because we don't want to have the device upside down
+        // We constrain the x value to the range [-90,90]
+        if (event.alpha, event.gamma > 90) { event.alpha, event.gamma = 90 };
+        if (event.alpha, event.gamma < -90) { event.alpha, event.gamma = -90 };
+
+        parameters.deviceBeta = event.beta;
+        parameters.deviceAlpha = event.alpha;
+        parameters.deviceGamma = event.gamma;
+}
+
 const tick = () =>
 {
+    window.ontouchstart = e => {
+        e.preventDefault();
+        scene.background = new THREE.Color( 0xffffff );
+        // Request permission for iOS 13+ devices
+        if (
+            DeviceOrientationEvent &&
+            typeof DeviceOrientationEvent.requestPermission === "function"
+          ) {
+            DeviceOrientationEvent.requestPermission();
+            window.addEventListener("deviceorientation", handleOrientation);
+          }
+    }
+    // Detect device orientation
+    // window.addEventListener("deviceorientation", (event) => {
+    //     var x = event.beta;
+    //     var y = event.alpha;
+    //     var z = event.gamma;
+    
+    //     // Because we don't want to have the device upside down
+    //     // We constrain the x value to the range [-90,90]
+    //     if (y,z > 90) { y,z = 90};
+    //     if (y,z < -90) { y,z = -90};
+
+    //     parameters.deviceBeta = x;
+    //     parameters.deviceAlpha = y;
+    //     parameters.deviceGamma = z;
+        
+    // }, true);
+
     const elapsedTime = clock.getElapsedTime()
 
     // Update controls
@@ -190,6 +215,13 @@ const tick = () =>
 
     // Render
     renderer.render(scene, camera)
+
+    // console.log(parameters.deviceAlpha * Math.PI / 180);
+    // Rotation
+    mesh.rotation.x = parameters.deviceBeta * Math.PI / 180;
+    mesh.rotation.y = parameters.deviceAlpha * Math.PI / 180;
+    mesh.rotation.z = - parameters.deviceGamma * Math.PI / 180;
+    
 
     // Call tick again on the next frame
     window.requestAnimationFrame(tick)
