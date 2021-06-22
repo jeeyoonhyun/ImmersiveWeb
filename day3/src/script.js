@@ -6,7 +6,7 @@ import * as dat from 'dat.gui';
 
 // Params
 const parameters = {
-    meshColor: 0x455eff,
+    meshColor: 0x97cdae,
     lightColor: 0xffffff,
     planeColor: 0x313866,
     deviceAlpha:0,
@@ -27,22 +27,37 @@ scene.background = new THREE.Color( 0xf1d3d3 );
 /**
  * Object
  */
-const geometry = new THREE.BoxGeometry(10, 10, 10)
+// const geometry = new THREE.BoxGeometry(10, 10, 10)
+const geometry = new THREE.TorusKnotGeometry( 5, 1.2, 64, 16, 1, 2 );
 const material = new THREE.MeshToonMaterial({ color: parameters.meshColor })
 const mesh = new THREE.Mesh(geometry, material)
 mesh.castShadow = true;
 mesh.receiveShadow = true;
 scene.add(mesh)
-mesh.position.set(0,10,0);
+mesh.position.set(0,5,3);
 
 // Light
-const dirLight = new THREE.DirectionalLight( parameters.lightColor, 0.5 );
+// const dirLight = new THREE.DirectionalLight( parameters.lightColor, 0.7 );
+const dirLight = new THREE.DirectionalLight( 0xffffff, 0.7 );
 dirLight.castShadow = true; // default false
-dirLight.position.set(0,10,5);
+dirLight.position.set(0,60,5);
+
+// adjust dirLight size
+dirLight.shadowCameraLeft = -10;
+dirLight.shadowCameraRight = 10;
+dirLight.shadowCameraTop = 10;
+dirLight.shadowCameraBottom = -10;
+
 scene.add( dirLight );
+
+// const helper = new THREE.CameraHelper( dirLight.shadow.camera );
+// scene.add( helper );
+
+
 
 const ambLight = new THREE.AmbientLight(0xffffff);
 scene.add( ambLight );
+
 
 /**
  * Sizes
@@ -106,7 +121,7 @@ const planeMaterial = new THREE.MeshToonMaterial({ color: parameters.planeColor}
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 scene.add(plane);
 plane.rotateX(-2);
-plane.position.set(0,-10,0);
+plane.position.set(0,-20,0);
 
 // Shadow on plane
 plane.castShadow = true;
@@ -139,26 +154,26 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
 
 // axisHelper
-const axesHelper = new THREE.AxesHelper( 20 );
-scene.add( axesHelper );
+// const axesHelper = new THREE.AxesHelper( 20 );
+// scene.add( axesHelper );
 
 // dat.gui
 
-const gui = new dat.GUI({autoPlace: true});
-gui.domElement.id = 'gui';
-let folder = gui.addFolder(`Colors`)
-gui
-    .addColor(parameters, 'meshColor')
-    .onChange(() =>
-    {
-        material.color.set(parameters.meshColor)
-    })
-gui
-    .addColor(parameters, 'lightColor')
-    .onChange(() =>
-    {
-        material.color.set(parameters.lightColor)
-    })
+// const gui = new dat.GUI({autoPlace: true});
+// gui.domElement.id = 'gui';
+// let folder = gui.addFolder(`Colors`)
+// gui
+//     .addColor(parameters, 'meshColor')
+//     .onChange(() =>
+//     {
+//         material.color.set(parameters.meshColor)
+//     })
+// gui
+//     .addColor(parameters, 'lightColor')
+//     .onChange(() =>
+//     {
+//         material.color.set(parameters.lightColor)
+//     })
 
 /**
  * Animate
@@ -173,14 +188,12 @@ const getPermisson = e => {
         typeof DeviceOrientationEvent.requestPermission === "function"
       ) {
         console.log("click event received!!")
-        scene.background = new THREE.Color( 0xffffff );
         DeviceOrientationEvent.requestPermission();
     }
 }
 
 const rotate = e => {
     console.log("orientation event received!")
-    scene.background = new THREE.Color( 0xff0000 );
     var x = e.beta;
     var y = e.alpha;
     var z = e.gamma;
@@ -196,18 +209,36 @@ const rotate = e => {
 }
 
 // get device orientation when button is clicked
+let is_running = false;
 let button = document.getElementById("start");
 
 button.onclick = function(e) {
     e.preventDefault();
-    window.addEventListener("click", getPermisson);
-    window.addEventListener("touchstart", getPermisson);
-    // Detect device orientation
-    window.addEventListener("deviceorientation", rotate, true);
+
+    if (is_running){
+        scene.background = new THREE.Color( 0xf1d3d3 );
+        button.innerText = 'start detection';
+        // iOS permission
+        window.removeEventListener("click", getPermisson);
+        window.removeEventListener("touchstart", getPermisson);
+        // device orientation
+        window.removeEventListener("deviceorientation", rotate, true);
+        is_running = false;
+      }else{
+        scene.background = new THREE.Color( 0xF2E7B3 );
+        button.innerText = 'stop detection';
+        // iOS permission
+        window.addEventListener("click", getPermisson);
+        window.addEventListener("touchstart", getPermisson);
+        // device orientation
+        window.addEventListener("deviceorientation", rotate, true);
+        is_running = true;
+      }
 
 }
 const tick = () =>
 {
+    // window.addEventListener("deviceorientation", rotate, true);
     const elapsedTime = clock.getElapsedTime()
 
     // Update controls
