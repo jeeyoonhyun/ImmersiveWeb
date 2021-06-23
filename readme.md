@@ -17,15 +17,15 @@ The updated experiments will be archived in [instagram](https://www.instagram.co
 - Upload whatever I have done for 1 hour
 
 ## Day 1: Diving
-![3d text written '50 days of immersive web' with black ocean waves](./day1/day1.gif)
+![3d text written '50 days of immersive web' with black ocean waves](./public/assets/day1/day1.gif)
 * Typeface credit: Anthony by Sun Young Oh, downloded from Velvetyne Type Foundry
 
 ## Day 2: Postprocessing
-![white glowing linear shapes that are intertwined](./day2/day2.gif)
+![white glowing linear shapes that are intertwined](./public/assets/day2/day2.gif)
 
 Today I played around with making random shapes and applying the Bloom postprocessing effect on the scene.
 
-## Day 3: Pong
-
-I tried using the Accelerometer API.
+## Day 3: Rotation
+![Floating tube object](./public/assets/day3/day3.png)
+I tried using the DeviceOrientation API. You can rotate the shape with your mobile device
 

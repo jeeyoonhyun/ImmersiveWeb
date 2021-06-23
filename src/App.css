@@ -1,0 +1,18 @@
+body {
+  background-color: black;
+}
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration:none;
+}
+a, a:visited {
+  color: inherit;
+}
+
+a:hover, a:active {
+  color: #61dafb;
+}
+
