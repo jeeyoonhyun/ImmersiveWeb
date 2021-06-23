@@ -1,5 +1,5 @@
-import Gallery from '../components/Gallery.js'
-import Header from '../components/Header.js'
+import Gallery from '../Components/Gallery.js'
+import Header from '../Components/Header.js'
 
 function Home() {
   return (

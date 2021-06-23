@@ -13,7 +13,7 @@ class Gallery extends React.Component {
                 <Masonry>
                     <Thumbnail day="1" title="Diving" img="./assets/day1/day1.gif"/>
                     <Thumbnail day="2" title="Postprocessing" img="./assets/day2/day2.gif"/>
-                    <Thumbnail day="3" title="Rotation" img="./assets/day3/thumbnail.png"/>
+                    <Thumbnail day="3" title="Rotation" img="./assets/day3/day3.png"/>
                     <Thumbnail img=""/>
                     <Thumbnail img=""/>
                     <Thumbnail img=""/>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from '../components/Header.js'
+import Header from '../Components/Header.js'
 
 // The number of columns change by resizing the window
 class Error extends React.Component {
