@@ -26,6 +26,7 @@ The updated experiments will also be archived in [instagram](https://www.instagr
 <a href="https://50days.netlify.app/day1">
 <img src="./public/assets/day1/day1.gif" alt="3d text written '50 days of immersive web' with black ocean waves" width="300" height="auto">
 </a>
+
 * Typeface credit: Anthony by Sun Young Oh, downloded from Velvetyne Type Foundry
 
 ## [Day 2: Postprocessing](https://50days.netlify.app/day2)
@@ -40,5 +41,5 @@ Today I played around with making random shapes and applying the Bloom postproce
 <img src="./public/assets/day3/day3.gif" alt="Floating tube object" width="300" height="auto">
 </a>
 
-I tried using the DeviceOrientation API. You can rotate the shape with your mobile device
+I tried using the DeviceOrientation API. You can rotate the shape with your mobile device.
 
