@@ -2,6 +2,8 @@
 
 [Project Website](https://50days.netlify.app/)
 
+![Screen capture of the project gallery website](./public/assets/website.png)
+
 50 days of immersive web is a personal challenge I am doing this summer. 
 For one hour a day, I will try working with different immersive technologies that runs in the web browser, fail fast and find out what I really want to focus. 
 I will also get rid of perfectionism and value quantity over quality, breadth over depth and consistency over intensity. 
