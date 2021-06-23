@@ -20,17 +20,21 @@ const scene = new THREE.Scene()
 
 let mesh;
 let geometry;
+const group = new THREE.Group();
 // const geometry = new THREE.TorusKnotGeometry( 1, 0.02, 8, 16 );
 const material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
 mesh = new THREE.Mesh( geometry, material );
 scene.add( mesh );
 
 for (let i=0; i< 10; i++) {
-    geometry = new THREE.CylinderGeometry(Math.random(5), , 8, 16, Math.floor(Math.random() * 20), Math.floor(Math.random() * 20));
+    geometry = new THREE.TorusKnotGeometry(0.5, 0.02, 8, 16, 10+Math.floor(Math.random() * 10), 10+Math.floor(Math.random() * 10));
     mesh = new THREE.Mesh( geometry, material );
     mesh.position.set( Math.floor(Math.random() * 3), Math.floor(Math.random() * 3), Math.floor(Math.random() * 3));
-    scene.add( mesh );
+    group.add( mesh );
 }
+
+scene.add( group );
+group.position.set(0,0,-1);
 let params = {
     exposure: 1,
     bloomStrength: 1.5,
@@ -50,10 +54,10 @@ let params = {
  * Camera
  */
 // Base camera
-const camera = new THREE.PerspectiveCamera(10, sizes.width / sizes.height, 1, 50)
+const camera = new THREE.PerspectiveCamera(30, sizes.width / sizes.height, 1, 50)
 camera.position.set( 1, -3, 0 );
 scene.add(camera);
-camera.lookAt(mesh);
+camera.lookAt(group);
 
 // Controls
 const controls = new OrbitControls(camera, canvas)
@@ -144,6 +148,9 @@ const tick = () =>
 
     params.bloomStrength = 5 * Math.sin(time);
     params.needsUpdate = true;
+
+    group.rotation.x += 0.01;
+    group.rotation.y += 0.01;
 
     // Update controls
     controls.update()
