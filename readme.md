@@ -26,6 +26,6 @@ The updated experiments will be archived in [instagram](https://www.instagram.co
 Today I played around with making random shapes and applying the Bloom postprocessing effect on the scene.
 
 ## Day 3: Rotation
-![Floating tube object](./public/assets/day3/day3.png)
+![Floating tube object](./public/assets/day3/day3.gif)
 I tried using the DeviceOrientation API. You can rotate the shape with your mobile device
 
