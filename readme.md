@@ -43,3 +43,11 @@ Today I played around with making random shapes and applying the Bloom postproce
 
 I tried using the DeviceOrientation API. You can rotate the shape with your mobile device.
 
+## [Day 4: 10000](https://50days.netlify.app/day4)
+<a href="https://50days.netlify.app/day4">
+<img src="./public/assets/day4/day4.gif" alt="10000 particles floating around" width="300" height="auto">
+</a>
+
+10,000 particles moving in parallax.
+
+
