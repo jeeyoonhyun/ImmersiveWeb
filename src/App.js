@@ -9,6 +9,7 @@ import Error from './Pages/Error.js'
 import Day1 from './Pages/Day1.js'
 import Day2 from './Pages/Day2.js'
 import Day3 from './Pages/Day3.js'
+import Day4 from './Pages/Day4.js'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/day1" component={Day1} />
         <Route path="/day2" component={Day2} />
         <Route path="/day3" component={Day3} />
+        <Route path="/day4" component={Day4} />
         <Route component={Error} />
       </Switch>
     </div>
