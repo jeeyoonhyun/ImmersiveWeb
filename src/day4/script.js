@@ -1,12 +1,13 @@
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import * as dat from 'dat.gui'
+import { Vector3 } from 'three'
 
 const parameters = {
-    backgroundColor: 0x232323,
+    // backgroundColor: 0x232323,
     opacity: 0.8,
-    // backgroundColor: 0xbababa,
+    backgroundColor: 0xe8e8e8,
+    particleColor: 0x7b83b0
 }
 
 // loading manager
@@ -30,10 +31,10 @@ loadingManager.onError = () => {
 
 const textureLoader = new THREE.TextureLoader(loadingManager);
 // load multiple textures
-const textureCount = 10;
+const textureCount = 9;
 let particlesTextureArray = []
 for (let i=0; i<textureCount; i++) {
-    particlesTextureArray.push(textureLoader.load(`./static/textures/particles/${i}.png`));
+    particlesTextureArray.push(textureLoader.load(`./textures/particles/${i}.png`));
 }
 
 
@@ -42,7 +43,7 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
-scene.background = new THREE.Color( parameters.backgroundColor );
+// scene.background = new THREE.Color( parameters.backgroundColor );
 
 // Particles
 
@@ -66,7 +67,7 @@ for (let i=0; i<textureCount; i++) {
     //colors
     const colors = new Float32Array(count * 3) // r, g, b
     for (let i=0; i<count * 3 ; i++) {
-        colors[i] = 0.2 //note: color is not 0~255, its 0~1
+        colors[i] = 0.6 //note: color is not 0~255, its 0~1
     }
     particlesGeometryArray[i].setAttribute(
         'color', 
@@ -78,9 +79,9 @@ for (let i=0; i<textureCount; i++) {
 let particlesMaterialArray = []
 for (let i=0; i<textureCount; i++) {
     particlesMaterialArray.push(new THREE.PointsMaterial());
-    particlesMaterialArray[i].size = 0.5;
+    particlesMaterialArray[i].size = 0.3;
     particlesMaterialArray[i].sizeAttenuation = true;
-    particlesMaterialArray[i].color = new THREE.Color('lightsteelblue'); //you can still add a 'base' color even when you use vertexColors
+    particlesMaterialArray[i].color = new THREE.Color(parameters.particleColor); //you can still add a 'base' color even when you use vertexColors
 
     //make the black parts transparent
     particlesMaterialArray[i].transparent = true
@@ -130,8 +131,8 @@ window.addEventListener('resize', () =>
  * Camera
  */
 // Base camera
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.z = 3
+const camera = new THREE.PerspectiveCamera(100, sizes.width / sizes.height, 0.1, 100)
+camera.position.z = 2
 scene.add(camera)
 
 // Controls
@@ -142,10 +143,12 @@ controls.enableDamping = true
  * Renderer
  */
 const renderer = new THREE.WebGLRenderer({
-    canvas: canvas
+    canvas: canvas,
+    alpha: true,
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+renderer.setClearColor(0x000000, 0);
 
 /**
  * Animate
@@ -161,8 +164,8 @@ const tick = () =>
     for (let j=0; j<textureCount; j++) {
         for (let i=0; i < count; i++) {
             const i3 = i * 3
-            const x = particlesGeometryArray[j].attributes.position.array[i3 + 2] //x position of particle
-            particlesGeometryArray[j].attributes.position.array[i3 + 1] = 9*(Math.sin(elapsedTime))*Math.sin(elapsedTime + x/3) // y position of each particle
+            const x = particlesGeometryArray[j].attributes.position.array[i3 + 0] //x position of particle
+            particlesGeometryArray[j].attributes.position.array[i3 + 1] = 2*j*(Math.sin((elapsedTime+10)/60))*Math.sin((elapsedTime+10)/16 + j/3) // y position of each particle
         } //this method is inefficient performance-wise. You should use a custom shader for complex animation
         // Particles need update
         particlesGeometryArray[j].attributes.position.needsUpdate = true

@@ -10,18 +10,19 @@ const Background = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    color:white;
     &:hover {
-        opacity: .8;
+        opacity: .2;
     }
 `
 
 const Day = styled.h4`
     margin:0;
+    color:#fff;
 `
 
 const Title = styled.h2`
     margin:0.5em 0 0 0;
+    color:#fff;
 `
 
 // The number of columns change by resizing the window
