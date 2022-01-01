@@ -50,4 +50,6 @@ I tried using the DeviceOrientation API. You can rotate the shape with your mobi
 
 10,000 particles moving in parallax.
 
+* particle texture credits: Particle Pack by Kenney, downloaded from [kenney.nl/assets/particle-pack](kenney.nl/assets/particle-pack)
+
 
