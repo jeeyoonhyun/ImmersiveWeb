@@ -52,4 +52,12 @@ I tried using the DeviceOrientation API. You can rotate the shape with your mobi
 
 * particle texture credits: Particle Pack by Kenney, downloaded from [kenney.nl/assets/particle-pack](kenney.nl/assets/particle-pack)
 
+## [Day 5: Custom Postprocessing](https://50days.netlify.app/day5)
+<a href="https://50days.netlify.app/day5">
+<img src="./public/assets/day5/day5.gif" alt="rotating torus knot with blurry outlines" width="300" height="auto">
+</a>
+
+Custom threshold shader combined with UnrealBloomPass.
+
+
 

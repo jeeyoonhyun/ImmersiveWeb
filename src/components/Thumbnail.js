@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import styled from "styled-components";
 
 const Background = styled.div`
-    background:url(${props => props.img}) no-repeat center center;
+    background:linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5)), url(${props => props.img}) no-repeat center center;
     background-size:cover;
     height:30vh;
     padding: 1.5em;
@@ -11,7 +11,8 @@ const Background = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     &:hover {
-        opacity: .2;
+        background:url(${props => props.img}) no-repeat center center;
+        background-size:cover;
     }
 `
 
