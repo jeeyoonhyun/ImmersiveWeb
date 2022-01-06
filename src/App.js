@@ -11,6 +11,7 @@ import Day2 from './Pages/Day2.js'
 import Day3 from './Pages/Day3.js'
 import Day4 from './Pages/Day4.js'
 import Day5 from './Pages/Day5.js'
+import Day6 from './Pages/Day6.js'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/day3" component={Day3} />
         <Route path="/day4" component={Day4} />
         <Route path="/day5" component={Day5} />
+        <Route path="/day6" component={Day6} />
         <Route component={Error} />
       </Switch>
     </div>

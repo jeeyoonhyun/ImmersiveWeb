@@ -59,5 +59,10 @@ I tried using the DeviceOrientation API. You can rotate the shape with your mobi
 
 Custom threshold shader combined with UnrealBloomPass.
 
+## [Day 6: Dithering](https://50days.netlify.app/day6)
+<a href="https://50days.netlify.app/day6">
+<img src="./public/assets/day6/day6.gif" alt="rotating torus knot with dithered texture" width="300" height="auto">
+</a>
 
-
+Random noise & ordered dithering postprocessing shaders.
+I used these resources: https://surma.dev/things/ditherpunk/ & https://github.com/hughsk/glsl-dither/blob/master/4x4.glsl .

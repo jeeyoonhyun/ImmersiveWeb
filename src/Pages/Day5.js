@@ -9,7 +9,6 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { GammaCorrectionShader } from 'three/examples/jsm/shaders/GammaCorrectionShader' //for correcting sRGB encoding issue
 import { SMAAPass } from 'three/examples/jsm/postprocessing/SMAAPass' //for antialiasing
 import * as dat from 'dat.gui'
-import '../day5/style.css'
 
 // The number of columns change by resizing the window
 class Day5 extends React.Component {

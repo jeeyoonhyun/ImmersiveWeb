@@ -11,6 +11,7 @@ class Gallery extends React.Component {
                 // https://github.com/cedricdelpoux/react-responsive-masonry#readme
             >
                 <Masonry>
+                    <Thumbnail day="6" title="Dithering" img="./assets/day6/day6.gif"/>
                     <Thumbnail day="5" title="Custom Postprocessing" img="./assets/day5/day5.gif"/>
                     <Thumbnail day="4" title="10000" img="./assets/day4/day4.gif"/>
                     <Thumbnail day="3" title="Rotation" img="./assets/day3/day3.gif"/>
