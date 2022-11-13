@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { Suspense, useRef, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { useGLTF, Environment, OrbitControls } from '@react-three/drei'
+import { useGLTF, Environment, OrbitControls, Loader } from '@react-three/drei'
 import { EffectComposer, DepthOfField, Bloom } from '@react-three/postprocessing'
 
 function Stone({ z, props }) {
@@ -76,8 +76,8 @@ export default function Day7({ count = 100, depth = 100 }) {
           <Bloom luminanceThreshold={0.65} luminanceSmoothing={0.5} height={300} />
           <DepthOfField target={[0, 0, depth / 4]} focalLength={0.6} bokehScale={9} height={700} />
         </EffectComposer>
-
       </Canvas>
+      <Loader />
     </div>
   )
 }
