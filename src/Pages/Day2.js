@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React from 'react';
 import '../day2/style.css'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
@@ -175,7 +174,7 @@ class Day2 extends React.Component {
     render() {
         return (
             <div>
-                <canvas class="webgl"></canvas>
+                <canvas className="webgl"></canvas>
             </div>
         )
     }

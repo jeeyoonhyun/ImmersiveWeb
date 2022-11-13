@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React from 'react';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as THREE from "three";
 import '../day4/style.css'
@@ -19,19 +18,19 @@ class Day4 extends React.Component {
     const loadingManager = new THREE.LoadingManager();
     
     loadingManager.onStart = () => {
-        console.log('onStart')
+        // console.log('onStart')
     }
     
     loadingManager.onLoad = () => {
-        console.log('onLoad')
+        // console.log('onLoad')
     }
     
     loadingManager.onProgress = () => {
-        console.log('onProgress')
+        // console.log('onProgress')
     }
     
     loadingManager.onError = () => {
-        console.log('onError')
+        // console.log('onError')
     }
     
     const textureLoader = new THREE.TextureLoader(loadingManager);
@@ -40,7 +39,7 @@ class Day4 extends React.Component {
     let particlesTextureArray = []
     for (let i=0; i<textureCount; i++) {
         particlesTextureArray.push(textureLoader.load(`./assets/day4/textures/particles/${i}.png`));
-        console.log(particlesTextureArray);
+        // console.log(particlesTextureArray);
     }
     
     

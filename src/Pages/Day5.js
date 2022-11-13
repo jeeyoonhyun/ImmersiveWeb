@@ -18,7 +18,7 @@ class Day5 extends React.Component {
       * Base
       */
         // dat.gui
-        const gui = new dat.GUI()
+        // const gui = new dat.GUI()
 
         // Canvas
         const canvas = document.querySelector('canvas.webgl')
@@ -218,7 +218,7 @@ class Day5 extends React.Component {
         thresholdPass.material.uniforms.uTint.value = new THREE.Vector3(0, 0, 0);
         thresholdPass.enabled = true;
         thresholdPass.material.uniforms.uBrightness.value = 0.005;
-        gui.add(thresholdPass, 'enabled').name('thresholdPass')
+        // gui.add(thresholdPass, 'enabled').name('thresholdPass')
         // gui.add(thresholdPass.material.uniforms.uBrightness, 'value').min(0).max(1).step(0.001).name('brightness')
         effectComposer.addPass(thresholdPass)
 
@@ -228,7 +228,7 @@ class Day5 extends React.Component {
         unrealBloomPass.strength = 0.54
         unrealBloomPass.radius = 0.82
         effectComposer.addPass(unrealBloomPass)
-        gui.add(unrealBloomPass, 'enabled').name('unrealBloomPass')
+        // gui.add(unrealBloomPass, 'enabled').name('unrealBloomPass')
 
         // add color correction at the last
         const gammaCorrectionPass = new ShaderPass(GammaCorrectionShader)

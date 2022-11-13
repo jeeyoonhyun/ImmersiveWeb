@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React from 'react';
 import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js'
@@ -7,7 +6,7 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass'
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass'
 import { GammaCorrectionShader } from 'three/examples/jsm/shaders/GammaCorrectionShader' //for correcting sRGB encoding issue
 import { SMAAPass } from 'three/examples/jsm/postprocessing/SMAAPass' //for antialiasing
-import * as dat from 'dat.gui'
+// import * as dat from 'dat.gui'
 
 // The number of columns change by resizing the window
 class Day6 extends React.Component {

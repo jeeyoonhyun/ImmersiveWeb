@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {Link} from "react-router-dom";
+import React from 'react';
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Background = styled.div`
@@ -31,9 +31,9 @@ class Thumbnail extends React.Component {
     render() {
         return (
             <div>
-                <Link to= {this.props.day ? `day${this.props.day}`: `/`} >
-                    <Background img = {this.props.img}>
-                        <Day>{this.props.day ? `Day `+ this.props.day : null} </Day>
+                <Link to={this.props.day ? `day${this.props.day}` : `/`} >
+                    <Background img={this.props.img}>
+                        <Day>{this.props.day ? `Day ` + this.props.day : null} </Day>
                         <Title>{this.props.title}</Title>
                     </Background>
                 </Link>

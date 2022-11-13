@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 import '../day1/style.css'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as THREE from "three";
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
+
 
 // The number of columns change by resizing the window
 class Day1 extends React.Component {
@@ -30,7 +32,7 @@ class Day1 extends React.Component {
          */
 
         // load font
-        const loader = new THREE.FontLoader();
+        const loader = new FontLoader();
         const font = loader.load(
             // resource URL
             './assets/day1/anthony.json',
@@ -60,7 +62,7 @@ class Day1 extends React.Component {
                 // const shapes = font.generateShapes( message, 100 );
                 // const geometry = new THREE.ShapeGeometry( shapes );
 
-                const geometry = new THREE.TextGeometry(message, {
+                const geometry = new TextGeometry(message, {
                     font: font,
                     size: 72,
                     height: 8,
@@ -88,7 +90,7 @@ class Day1 extends React.Component {
 
             // onProgress callback
             function (xhr) {
-                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                // console.log((xhr.loaded / xhr.total * 100) + '% loaded');
             },
 
             // onError callback
@@ -225,7 +227,7 @@ class Day1 extends React.Component {
     render() {
         return (
             <div>
-                <canvas class="webgl"></canvas>
+                <canvas className="webgl"></canvas>
             </div>
         )
     }
