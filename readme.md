@@ -6,9 +6,8 @@
     <img src="./public/assets/website.png" alt="Screen capture of the project gallery website" width="500" height="auto">
 </a> -->
 
-50 days of immersive web is a personal challenge I am doing this summer. 
-For one hour a day, I will try working with different immersive technologies that runs in the web browser, fail fast and find out what I really want to focus. 
-I will also get rid of perfectionism and value quantity over quality, breadth over depth and consistency over intensity. 
+50 days of immersive web is a personal challenge where I am trying different 3d stuff that runs in the web browser. My primary goal here is to make mini experiments, fail fast and find out what I really want to focus. 
+Eventually, I hope to rid of perfectionism and value quantity over quality, breadth over depth and consistency over intensity. 
 The updated experiments will also be archived in [instagram](https://www.instagram.com/jeeyoonhyun/) and a [github repo](https://github.com/jeeyoonhyun/ImmersiveWeb).
 
 ### Project Goal
