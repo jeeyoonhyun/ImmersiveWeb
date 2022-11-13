@@ -2,9 +2,9 @@
 
 [Project Website](https://50days.netlify.app/)
 
-<a href="https://50days.netlify.app/">
+<!-- <a href="https://50days.netlify.app/">
     <img src="./public/assets/website.png" alt="Screen capture of the project gallery website" width="500" height="auto">
-</a>
+</a> -->
 
 50 days of immersive web is a personal challenge I am doing this summer. 
 For one hour a day, I will try working with different immersive technologies that runs in the web browser, fail fast and find out what I really want to focus. 
