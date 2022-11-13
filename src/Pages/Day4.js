@@ -1,7 +1,6 @@
 import React from 'react';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as THREE from "three";
-import '../day4/style.css'
 
 // The number of columns change by resizing the window
 class Day4 extends React.Component {

@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import '../day1/style.css'
+import React from 'react';
 import * as THREE from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';

@@ -1,7 +1,6 @@
 import React from 'react';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as THREE from "three";
-import '../day3/style.css'
 
 // The number of columns change by resizing the window
 class Day3 extends React.Component {
@@ -216,7 +215,7 @@ class Day3 extends React.Component {
 
         // get device orientation when button is clicked
         let is_running = false;
-        let button = document.getElementById("start");
+        let button = document.getElementById("day3-start");
 
         button.onclick = function (e) {
             e.preventDefault();
@@ -268,8 +267,8 @@ class Day3 extends React.Component {
         return (
             <div>
                 <div id="container">
-                    <p id="description">press button and turn your phone around</p>
-                    <button id="start" className="btn" href="#" role="button">start detection</button>
+                    <p id="day3-description">press button and turn your phone around</p>
+                    <button id="day3-start" className="btn" href="#" role="button">start detection</button>
                     <canvas className="webgl"></canvas>
                 </div>
             </div>

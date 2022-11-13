@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import '../day1/style.css'
+import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Day1 from './Day1'
 import Day2 from './Day2'
@@ -27,8 +26,8 @@ export default function Day() {
     }
     const ComponentName = days[dayId];
     return (
-        <div>
-            (<ComponentName />)
+        <div >
+            <ComponentName />
         </div>
     )
 }
