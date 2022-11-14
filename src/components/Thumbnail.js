@@ -24,6 +24,7 @@ const Day = styled.h4`
 const Title = styled.h2`
     margin:0.5em 0 0 0;
     color:#fff;
+    cursor:pointer;
 `
 
 // The number of columns change by resizing the window

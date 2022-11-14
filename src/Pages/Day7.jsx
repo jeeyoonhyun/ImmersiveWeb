@@ -59,7 +59,7 @@ function Stone({ z, props }) {
 export default function Day7({ count = 100, depth = 100 }) {
   return (
     <div id="container">
-      <div className="text-day7">
+      <div className="day7-text">
         <p>click to materialize<br />click again to let go</p>
       </div>
       <Canvas className="webgl" gl={{ alpha: false }} camera={{ near: 0.01, far: 100, fov: 50 }}>
